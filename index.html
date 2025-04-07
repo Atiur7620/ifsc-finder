@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5669036271823218"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5669036271823218" crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-5669036271823218">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Bank IFSC Code Finder | ব্যাংক আইএফএসসি কোড ফাইন্ডার</title>
-    <!-- Tailwind CSS via CDN -->
+    <title>Bank IFSC Code Finder | ব্যাংক আইএফএসসি কোড ফাইন্ডার</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts - Roboto and Bengali font Noto Sans Bengali -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         .bn-text {
@@ -20,7 +16,6 @@
         .en-text {
             font-family: 'Roboto', sans-serif;
         }
-        /* Animation for loading */
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -31,7 +26,6 @@
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen font-sans">
-    <!-- Header Section -->
     <header class="bg-blue-700 text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -47,9 +41,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
-        <!-- Introduction -->
         <section class="mb-8 bg-white rounded-lg shadow-md p-6">
             <h2 class="text-2xl font-bold mb-3 text-blue-700 en-text">What is an IFSC Code?</h2>
             <p class="bn-text mb-2">আইএফএসসি কোড কী?</p>
@@ -61,44 +53,41 @@
             </p>
         </section>
 
-        <!-- Search Form -->
         <section class="mb-8 bg-white rounded-lg shadow-md p-6">
             <h2 class="text-2xl font-bold mb-5 text-blue-700 en-text">Find IFSC Code</h2>
             <p class="bn-text mb-4">আইএফএসসি কোড খুঁজুন</p>
 
             <form id="ifscSearchForm" class="space-y-6">
-                <!-- State Selection -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label for="state" class="block mb-2 font-medium en-text">State <span class="bn-text text-sm">(রাজ্য)</span></label>
                         <select id="state" name="state" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select State / রাজ্য নির্বাচন করুন</option>
-                            <!-- Will be populated by JavaScript -->
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
                         </select>
                     </div>
                     <div>
                         <label for="city" class="block mb-2 font-medium en-text">City <span class="bn-text text-sm">(শহর)</span></label>
                         <select id="city" name="city" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
                             <option value="">Select City / শহর নির্বাচন করুন</option>
-                            <!-- Will be populated by JavaScript -->
                         </select>
                     </div>
                 </div>
 
-                <!-- Bank and Branch Selection -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label for="bank" class="block mb-2 font-medium en-text">Bank <span class="bn-text text-sm">(ব্যাংক)</span></label>
                         <select id="bank" name="bank" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
                             <option value="">Select Bank / ব্যাংক নির্বাচন করুন</option>
-                            <!-- Will be populated by JavaScript -->
                         </select>
                     </div>
                     <div>
                         <label for="branch" class="block mb-2 font-medium en-text">Branch <span class="bn-text text-sm">(শাখা)</span></label>
                         <select id="branch" name="branch" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
                             <option value="">Select Branch / শাখা নির্বাচন করুন</option>
-                            <!-- Will be populated by JavaScript -->
                         </select>
                     </div>
                 </div>
@@ -111,7 +100,6 @@
             </form>
         </section>
 
-        <!-- Results Section -->
         <section id="resultsSection" class="mb-8 bg-white rounded-lg shadow-md p-6 hidden">
             <h2 class="text-2xl font-bold mb-5 text-blue-700 en-text">IFSC Code Details</h2>
             <p class="bn-text mb-4">আইএফএসসি কোড বিবরণ</p>
@@ -167,7 +155,6 @@
             </div>
         </section>
 
-        <!-- Information Section -->
         <section class="mb-8 bg-white rounded-lg shadow-md p-6">
             <h2 class="text-2xl font-bold mb-3 text-blue-700 en-text">About Bank IFSC Codes</h2>
             <p class="bn-text mb-4">ব্যাংক আইএফএসসি কোড সম্পর্কে</p>
@@ -199,7 +186,6 @@
         </section>
     </main>
 
-    <!-- Footer Section -->
     <footer class="bg-blue-800 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -219,7 +205,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
         // Sample data for demonstration
         const bankData = {
@@ -320,17 +305,6 @@
         const cityResult = document.getElementById("cityResult");
         const stateResult = document.getElementById("stateResult");
 
-        // Initialize state dropdown
-        function initializeStateDropdown() {
-            const states = Object.keys(bankData);
-            states.forEach(state => {
-                const option = document.createElement("option");
-                option.value = state;
-                option.textContent = state;
-                stateSelect.appendChild(option);
-            });
-        }
-
         // Handle state selection
         stateSelect.addEventListener("change", function() {
             const selectedState = this.value;
@@ -419,4 +393,29 @@
                     const ifscCode = bankData[selectedState][selectedCity][selectedBank][selectedBranch];
                     
                     // Update result elements
-         
+                    ifscResult.textContent = ifscCode;
+                    bankNameResult.textContent = selectedBank;
+                    branchNameResult.textContent = selectedBranch;
+                    cityResult.textContent = selectedCity;
+                    stateResult.textContent = selectedState;
+
+                    // Hide loading, show results
+                    loadingDiv.classList.add("hidden");
+                    resultContent.classList.remove("hidden");
+                }, 1500); // 1.5 seconds delay to simulate API call
+            }
+        });
+
+        // Copy IFSC code to clipboard
+        copyIfscBtn.addEventListener("click", function() {
+            const ifscCode = ifscResult.textContent;
+            navigator.clipboard.writeText(ifscCode).then(() => {
+                copyMessage.classList.remove("hidden");
+                setTimeout(() => {
+                    copyMessage.classList.add("hidden");
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
