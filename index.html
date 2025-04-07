@@ -5,7 +5,7 @@
     <meta name="google-adsense-account" content="ca-pub-5669036271823218">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank IFSC Code Finder</title>
+    <title>Complete Bank IFSC Code Finder - All Indian Banks</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -28,10 +28,10 @@
         <div class="container mx-auto px-4 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div>
-                    <h1 class="text-3xl font-bold">Bank IFSC Code Finder</h1>
+                    <h1 class="text-3xl font-bold">Complete Bank IFSC Code Finder</h1>
                 </div>
                 <div class="mt-4 md:mt-0">
-                    <p>Find IFSC codes for all Indian banks</p>
+                    <p>Find IFSC codes for all Indian banks and cities</p>
                 </div>
             </div>
         </div>
@@ -52,385 +52,210 @@
             <h2 class="text-2xl font-bold mb-5 text-blue-700">Find IFSC Code</h2>
 
             <form id="ifscSearchForm" class="space-y-6">
-                <!-- State Selection -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="state" class="block mb-2 font-medium">State</label>
-                        <select id="state" name="state" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="">Select State</option>
-                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="West Bengal">West Bengal</option>
-                            <option value="Delhi">Delhi</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="city" class="block mb-2 font-medium">City</label>
-                        <select id="city" name="city" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
-                            <option value="">Select City</option>
+                        <label for="searchType" class="block mb-2 font-medium">Search By</label>
+                        <select id="searchType" name="searchType" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="bankBranch">Bank & Branch</option>
+                            <option value="ifscDirect">IFSC Code</option>
                         </select>
                     </div>
                 </div>
 
-                <!-- Bank and Branch Selection -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="bank" class="block mb-2 font-medium">Bank</label>
-                        <select id="bank" name="bank" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
-                            <option value="">Select Bank</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="branch" class="block mb-2 font-medium">Branch</label>
-                        <select id="branch" name="branch" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
-                            <option value="">Select Branch</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                        Find IFSC Code
-                    </button>
-                </div>
-            </form>
-        </section>
-
-        <!-- Results Section -->
-        <section id="resultsSection" class="mb-8 bg-white rounded-lg shadow-md p-6 hidden">
-            <h2 class="text-2xl font-bold mb-5 text-blue-700">IFSC Code Details</h2>
-
-            <div id="loading" class="text-center py-10 hidden">
-                <i class="fas fa-circle-notch fa-spin text-blue-600 text-4xl"></i>
-                <p class="mt-3">Fetching IFSC code...</p>
-            </div>
-
-            <div id="resultContent" class="hidden">
-                <div class="border-b pb-4 mb-4">
+                <!-- Bank & Branch Search Section -->
+                <div id="bankBranchSection">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <p class="text-gray-600">IFSC Code:</p>
-                            <p id="ifscResult" class="text-xl font-bold text-blue-700"></p>
+                            <label for="state" class="block mb-2 font-medium">State</label>
+                            <select id="state" name="state" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select State</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                                <option value="Ladakh">Ladakh</option>
+                                <option value="Puducherry">Puducherry</option>
+                                <option value="Andaman & Nicobar">Andaman & Nicobar Islands</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Dadra and Nagar Haveli and Daman & Diu">Dadra and Nagar Haveli and Daman & Diu</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                            </select>
                         </div>
                         <div>
-                            <p class="text-gray-600">MICR Code:</p>
-                            <p id="micrResult" class="text-xl font-bold text-blue-700">N/A</p>
+                            <label for="city" class="block mb-2 font-medium">City/Town</label>
+                            <div id="citySelectContainer">
+                                <select id="city" name="city" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Select City/Town</option>
+                                </select>
+                            </div>
+                            <div class="mt-2 ml-1">
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" id="customCityCheck" class="form-checkbox h-4 w-4 text-blue-600">
+                                    <span class="ml-2 text-sm text-gray-700">My city is not in the list</span>
+                                </label>
+                            </div>
+                            <div id="customCityContainer" class="hidden mt-2">
+                                <input type="text" id="customCity" name="customCity" placeholder="Enter your city/town name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">Bank Details</h3>
-                        <div class="space-y-2">
-                            <p><span class="text-gray-600">Bank Name:</span> <span id="bankNameResult"></span></p>
-                            <p><span class="text-gray-600">Branch:</span> <span id="branchNameResult"></span></p>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">Branch Address</h3>
-                        <div class="space-y-2">
-                            <p><span class="text-gray-600">Address:</span> <span id="addressResult">N/A</span></p>
-                            <p><span class="text-gray-600">City:</span> <span id="cityResult"></span></p>
-                            <p><span class="text-gray-600">State:</span> <span id="stateResult"></span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t">
-                    <button id="copyIfscBtn" class="flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition duration-300">
-                        <i class="fas fa-copy mr-2"></i> <span>Copy IFSC Code</span>
-                    </button>
-                    <div id="copyMessage" class="mt-2 text-green-600 hidden">
-                        <i class="fas fa-check-circle"></i> <span>Copied to clipboard!</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Information Section -->
-        <section class="mb-8 bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-bold mb-3 text-blue-700">About Bank IFSC Codes</h2>
-            
-            <div class="space-y-4">
-                <div>
-                    <h3 class="font-bold text-lg">Structure of IFSC</h3>
-                    <p>The 11-character IFSC is structured as follows:</p>
-                    <ul class="list-disc list-inside ml-4 mt-2">
-                        <li>First 4 characters: Bank code (alphabetic)</li>
-                        <li>5th character: 0 (zero, reserved for future use)</li>
-                        <li>Last 6 characters: Branch code (alphanumeric)</li>
-                    </ul>
-                </div>
-
-                <div class="mt-4">
-                    <h3 class="font-bold text-lg">Uses of IFSC</h3>
-                    <p>IFSC is used for:</p>
-                    <ul class="list-disc list-inside ml-4 mt-2">
-                        <li>NEFT (National Electronic Funds Transfer)</li>
-                        <li>RTGS (Real Time Gross Settlement)</li>
-                        <li>IMPS (Immediate Payment Service)</li>
-                        <li>UPI (Unified Payments Interface) transactions</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="bg-blue-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div>
-                    <h2 class="text-xl font-bold mb-2">Bank IFSC Code Finder</h2>
-                </div>
-                <div class="mt-4 md:mt-0">
-                    <p>© 2023 All Rights Reserved</p>
-                </div>
-            </div>
-            <div class="mt-6 text-center text-sm">
-                <p>This is an application for finding IFSC codes of Indian banks.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // Sample data for demonstration
-        const bankData = {
-            "Andhra Pradesh": {
-                "Hyderabad": {
-                    "State Bank of India": {
-                        "Ameerpet": "SBIN0001234",
-                        "Jubilee Hills": "SBIN0001235",
-                        "Hitech City": "SBIN0001236"
-                    },
-                    "HDFC Bank": {
-                        "Banjara Hills": "HDFC0001234",
-                        "Kukatpally": "HDFC0001235",
-                        "Secunderabad": "HDFC0001236"
-                    }
-                },
-                "Vijayawada": {
-                    "ICICI Bank": {
-                        "MG Road": "ICIC0001234",
-                        "Benz Circle": "ICIC0001235"
-                    },
-                    "Axis Bank": {
-                        "Governorpet": "UTIB0001234",
-                        "Bandar Road": "UTIB0001235"
-                    }
-                }
-            },
-            "Karnataka": {
-                "Bangalore": {
-                    "State Bank of India": {
-                        "MG Road": "SBIN0002234",
-                        "Koramangala": "SBIN0002235",
-                        "Whitefield": "SBIN0002236"
-                    },
-                    "HDFC Bank": {
-                        "Indiranagar": "HDFC0002234",
-                        "Jayanagar": "HDFC0002235",
-                        "Electronic City": "HDFC0002236"
-                    }
-                }
-            },
-            "Gujarat": {
-                "Ahmedabad": {
-                    "State Bank of India": {
-                        "Navrangpura": "SBIN0003234",
-                        "Satellite": "SBIN0003235",
-                        "Prahlad Nagar": "SBIN0003236"
-                    },
-                    "HDFC Bank": {
-                        "CG Road": "HDFC0003234",
-                        "Maninagar": "HDFC0003235",
-                        "Vastrapur": "HDFC0003236"
-                    }
-                }
-            },
-            "Maharashtra": {
-                "Mumbai": {
-                    "State Bank of India": {
-                        "Nariman Point": "SBIN0000004",
-                        "Bandra West": "SBIN0000005",
-                        "Andheri East": "SBIN0000006"
-                    },
-                    "HDFC Bank": {
-                        "Fort": "HDFC0000004",
-                        "Juhu": "HDFC0000005",
-                        "Colaba": "HDFC0000006"
-                    }
-                },
-                "Pune": {
-                    "Axis Bank": {
-                        "FC Road": "UTIB0000003",
-                        "Aundh": "UTIB0000004"
-                    },
-                    "ICICI Bank": {
-                        "Kothrud": "ICIC0000003",
-                        "Shivaji Nagar": "ICIC0000004"
-                    }
-                }
-            },
-            "Tamil Nadu": {
-                "Chennai": {
-                    "State Bank of India": {
-                        "T Nagar": "SBIN0000010",
-                        "Adyar": "SBIN0000011",
-                        "Mylapore": "SBIN0000012"
-                    },
-                    "HDFC Bank": {
-                        "Anna Nagar": "HDFC0000010",
-                        "Nungambakkam": "HDFC0000011",
-                        "Velachery": "HDFC0000012"
-                    }
-                }
-            },
-            "West Bengal": {
-                "Kolkata": {
-                    "State Bank of India": {
-                        "Ballygunge": "SBIN0000001",
-                        "Park Street": "SBIN0000002",
-                        "Salt Lake": "SBIN0000003"
-                    },
-                    "HDFC Bank": {
-                        "Esplanade": "HDFC0000001",
-                        "New Alipore": "HDFC0000002",
-                        "Gariahat": "HDFC0000003"
-                    }
-                },
-                "Howrah": {
-                    "Axis Bank": {
-                        "Main Branch": "UTIB0000001",
-                        "Salkia": "UTIB0000002"
-                    },
-                    "ICICI Bank": {
-                        "GT Road": "ICIC0000001",
-                        "Howrah Station": "ICIC0000002"
-                    }
-                }
-            },
-            "Uttar Pradesh": {
-                "Lucknow": {
-                    "State Bank of India": {
-                        "Hazratganj": "SBIN0004234",
-                        "Gomti Nagar": "SBIN0004235",
-                        "Indira Nagar": "SBIN0004236"
-                    },
-                    "HDFC Bank": {
-                        "Alambagh": "HDFC0004234",
-                        "Mahanagar": "HDFC0004235",
-                        "Aliganj": "HDFC0004236"
-                    }
-                }
-            },
-            "Delhi": {
-                "New Delhi": {
-                    "State Bank of India": {
-                        "Connaught Place": "SBIN0000007",
-                        "Saket": "SBIN0000008",
-                        "Karol Bagh": "SBIN0000009"
-                    },
-                    "HDFC Bank": {
-                        "Rajouri Garden": "HDFC0000007",
-                        "Lajpat Nagar": "HDFC0000008",
-                        "Vasant Kunj": "HDFC0000009"
-                    }
-                }
-            },
-            // Template for other states - data will be shown as "not available" if selected
-            "Arunachal Pradesh": {},
-            "Assam": {},
-            "Bihar": {},
-            "Chhattisgarh": {},
-            "Goa": {},
-            "Haryana": {},
-            "Himachal Pradesh": {},
-            "Jharkhand": {},
-            "Kerala": {},
-            "Madhya Pradesh": {},
-            "Manipur": {},
-            "Meghalaya": {},
-            "Mizoram": {},
-            "Nagaland": {},
-            "Odisha": {},
-            "Punjab": {},
-            "Rajasthan": {},
-            "Sikkim": {},
-            "Telangana": {},
-            "Tripura": {},
-            "Uttarakhand": {}
-        };
-
-        // DOM elements
-        const stateSelect = document.getElementById("state");
-        const citySelect = document.getElementById("city");
-        const bankSelect = document.getElementById("bank");
-        const branchSelect = document.getElementById("branch");
-        const ifscSearchForm = document.getElementById("ifscSearchForm");
-        const resultsSection = document.getElementById("resultsSection");
-        const loadingDiv = document.getElementById("loading");
-        const resultContent = document.getElementById("resultContent");
-        const copyIfscBtn = document.getElementById("copyIfscBtn");
-        const copyMessage = document.getElementById("copyMessage");
-
-        // Result elements
-        const ifscResult = document.getElementById("ifscResult");
-        const bankNameResult = document.getElementById("bankNameResult");
-        const branchNameResult = document.getElementById("branchNameResult");
-        const cityResult = document.getElementById("cityResult");
-        const stateResult = document.getElementById("stateResult");
-
-        // Handle state selection
-        stateSelect.addEventListener("change", function() {
-            const selectedState = this.value;
-            citySelect.innerHTML = '<option value="">Select City</option>';
-            bankSelect.innerHTML = '<option value="">Select Bank</option>';
-            branchSelect.innerHTML = '<option value="">Select Branch</option>';
-            
-            bankSelect.disabled = true;
-            branchSelect.disabled = true;
-
-            if (selectedState) {
-                const cities = Object.keys(bankData[selectedState] || {});
-                
-                if (cities.length > 0) {
-                    cities.forEach(city => {
-                        const option = document.createElement("option");
-                        option.value = city;
-                        option.textContent = city;
-                        citySelect.appendChild(option);
-                    });
-                    citySelect.disabled = false;
-                } else {
-                    // If no cities found for the state
-                    const option = document.createElement("option");
-                    option.value = "Not Available";
-                    option.tex
+                    <!-- Bank Selection -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div>
+                            <label for="bank" class="block mb-2 font-medium">Bank</label>
+                            <select id="bank" name="bank" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select Bank</option>
+                                <!-- Nationalized/Public Sector Banks -->
+                                <optgroup label="Nationalized/Public Sector Banks">
+                                    <option value="State Bank of India">State Bank of India</option>
+                                    <option value="Punjab National Bank">Punjab National Bank</option>
+                                    <option value="Bank of Baroda">Bank of Baroda</option>
+                                    <option value="Canara Bank">Canara Bank</option>
+                                    <option value="Union Bank of India">Union Bank of India</option>
+                                    <option value="Bank of India">Bank of India</option>
+                                    <option value="Indian Bank">Indian Bank</option>
+                                    <option value="Central Bank of India">Central Bank of India</option>
+                                    <option value="Bank of Maharashtra">Bank of Maharashtra</option>
+                                    <option value="UCO Bank">UCO Bank</option>
+                                    <option value="Indian Overseas Bank">Indian Overseas Bank</option>
+                                    <option value="Punjab & Sind Bank">Punjab & Sind Bank</option>
+                                </optgroup>
+                                
+                                <!-- Private Sector Banks -->
+                                <optgroup label="Private Sector Banks">
+                                    <option value="HDFC Bank">HDFC Bank</option>
+                                    <option value="ICICI Bank">ICICI Bank</option>
+                                    <option value="Axis Bank">Axis Bank</option>
+                                    <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+                                    <option value="IndusInd Bank">IndusInd Bank</option>
+                                    <option value="Yes Bank">Yes Bank</option>
+                                    <option value="IDBI Bank">IDBI Bank</option>
+                                    <option value="Federal Bank">Federal Bank</option>
+                                    <option value="South Indian Bank">South Indian Bank</option>
+                                    <option value="Karnataka Bank">Karnataka Bank</option>
+                                    <option value="Bandhan Bank">Bandhan Bank</option>
+                                    <option value="RBL Bank">RBL Bank</option>
+                                    <option value="Karur Vysya Bank">Karur Vysya Bank</option>
+                                    <option value="Dhanlaxmi Bank">Dhanlaxmi Bank</option>
+                                    <option value="IDFC First Bank">IDFC First Bank</option>
+                                    <option value="Tamilnad Mercantile Bank">Tamilnad Mercantile Bank</option>
+                                    <option value="City Union Bank">City Union Bank</option>
+                                    <option value="Nainital Bank">Nainital Bank</option>
+                                    <option value="DCB Bank">DCB Bank</option>
+                                    <option value="Jammu & Kashmir Bank">Jammu & Kashmir Bank</option>
+                                </optgroup>
+                                
+                                <!-- Foreign Banks -->
+                                <optgroup label="Foreign Banks">
+                                    <option value="HSBC Bank">HSBC Bank</option>
+                                    <option value="Citibank">Citibank</option>
+                                    <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+                                    <option value="Deutsche Bank">Deutsche Bank</option>
+                                    <option value="DBS Bank">DBS Bank</option>
+                                    <option value="Bank of America">Bank of America</option>
+                                    <option value="Barclays Bank">Barclays Bank</option>
+                                    <option value="BNP Paribas">BNP Paribas</option>
+                                    <option value="Credit Suisse">Credit Suisse</option>
+                                    <option value="MUFG Bank">MUFG Bank</option>
+                                </optgroup>
+                                
+                                <!-- Small Finance Banks -->
+                                <optgroup label="Small Finance Banks">
+                                    <option value="AU Small Finance Bank">AU Small Finance Bank</option>
+                                    <option value="Equitas Small Finance Bank">Equitas Small Finance Bank</option>
+                                    <option value="Ujjivan Small Finance Bank">Ujjivan Small Finance Bank</option>
+                                    <option value="Jana Small Finance Bank">Jana Small Finance Bank</option>
+                                    <option value="Suryoday Small Finance Bank">Suryoday Small Finance Bank</option>
+                                    <option value="ESAF Small Finance Bank">ESAF Small Finance Bank</option>
+                                    <option value="Fincare Small Finance Bank">Fincare Small Finance Bank</option>
+                                    <option value="North East Small Finance Bank">North East Small Finance Bank</option>
+                                    <option value="Capital Small Finance Bank">Capital Small Finance Bank</option>
+                                    <option value="Unity Small Finance Bank">Unity Small Finance Bank</option>
+                                </optgroup>
+                                
+                                <!-- Payment Banks -->
+                                <optgroup label="Payment Banks">
+                                    <option value="Airtel Payments Bank">Airtel Payments Bank</option>
+                                    <option value="India Post Payments Bank">India Post Payments Bank</option>
+                                    <option value="Paytm Payments Bank">Paytm Payments Bank</option>
+                                    <option value="Fino Payments Bank">Fino Payments Bank</option>
+                                    <option value="NSDL Payments Bank">NSDL Payments Bank</option>
+                                    <option value="Jio Payments Bank">Jio Payments Bank</option>
+                                </optgroup>
+                                
+                                <!-- Regional Rural Banks -->
+                                <optgroup label="Regional Rural Banks">
+                                    <option value="Andhra Pradesh Grameena Vikas Bank">Andhra Pradesh Grameena Vikas Bank</option>
+                                    <option value="Andhra Pragathi Grameena Bank">Andhra Pragathi Grameena Bank</option>
+                                    <option value="Assam Gramin Vikash Bank">Assam Gramin Vikash Bank</option>
+                                    <option value="Bangiya Gramin Vikash Bank">Bangiya Gramin Vikash Bank</option>
+                                    <option value="Baroda Gujarat Gramin Bank">Baroda Gujarat Gramin Bank</option>
+                                    <option value="Baroda Rajasthan Kshetriya Gramin Bank">Baroda Rajasthan Kshetriya Gramin Bank</option>
+                                    <option value="Chaitanya Godavari Gramin Bank">Chaitanya Godavari Gramin Bank</option>
+                                    <option value="Chhattisgarh Rajya Gramin Bank">Chhattisgarh Rajya Gramin Bank</option>
+                                    <option value="Dakshin Bihar Gramin Bank">Dakshin Bihar Gramin Bank</option>
+                                    <option value="Jharkhand Rajya Gramin Bank">Jharkhand Rajya Gramin Bank</option>
+                                    <option value="Karnataka Gramin Bank">Karnataka Gramin Bank</option>
+                                    <option value="Karnataka Vikas Grameena Bank">Karnataka Vikas Grameena Bank</option>
+                                    <option value="Kerala Gramin Bank">Kerala Gramin Bank</option>
+                                    <option value="Madhya Pradesh Gramin Bank">Madhya Pradesh Gramin Bank</option>
+                                    <option value="Madhyanchal Gramin Bank">Madhyanchal Gramin Bank</option>
+                                    <option value="Maharashtra Gramin Bank">Maharashtra Gramin Bank</option>
+                                    <option value="Manipur Rural Bank">Manipur Rural Bank</option>
+                                    <option value="Meghalaya Rural Bank">Meghalaya Rural Bank</option>
+                                    <option value="Mizoram Rural Bank">Mizoram Rural Bank</option>
+                                    <option value="Nagaland Rural Bank">Nagaland Rural Bank</option>
+                                    <option value="Odisha Gramya Bank">Odisha Gramya Bank</option>
+                                    <option value="Paschim Banga Gramin Bank">Paschim Banga Gramin Bank</option>
+                                    <option value="Prathama UP Gramin Bank">Prathama UP Gramin Bank</option>
+                                    <option value="Puduvai Bharathiar Grama Bank">Puduvai Bharathiar Grama Bank</option>
+                                    <option value="Punjab Gramin Bank">Punjab Gramin Bank</option>
+                                    <option value="Rajasthan Marudhara Gramin Bank">Rajasthan Marudhara Gramin Bank</option>
+                                    <option value="Saptagiri Grameena Bank">Saptagiri Grameena Bank</option>
+                                    <option value="Sarva Haryana Gramin Bank">Sarva Haryana Gramin Bank</option>
+                                    <option value="Tamil Nadu Grama Bank">Tamil Nadu Grama Bank</option>
+                                    <option value="Telangana Grameena Bank">Telangana Grameena Bank</option>
+                                    <option value="Tripura Gramin Bank">Tripura Gramin Bank</option>
+                                    <option value="Uttar Bihar Gramin Bank">Uttar Bihar Gramin Bank</option>
+                                    <option value="Uttarakhand Gramin Bank">Uttarakhand Gramin Bank</option>
+                                    <option value="Uttarbanga Kshetriya Gramin Bank">Uttarbanga Kshetriya Gramin Bank</option>
+                                    <option value="Vidharbha Konkan Gramin Bank">Vidharbha Konkan Gramin Bank</option>
+                                </optgroup>
+                                
+                                <!-- Cooperative Banks -->
+                                <optgroup label="Major Cooperative Banks">
+                                    <option value="Saraswat Cooperative Bank">Saraswat Cooperative Bank</option>
+                                    <option value="Cosmos Cooperative Bank">Cosmos Cooperative Bank</option>
+                                    <option value="SVC Cooperative Bank">SVC Cooperative Bank</option>
+                                    <option value="Abhyudaya Cooperative Bank">Abhyudaya Cooperative Bank</option>
+                                    <option value="Bharat Cooperative Bank">Bharat Cooperative Bank</option>
+                                    <option value="Gujarat State Cooperative Bank">Gujarat State Cooperative Bank</option>
+                                    <option value="Karnataka State Cooperative Apex Bank">Karnataka State Cooperative Apex Bank</option>
+                    
