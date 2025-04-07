@@ -6,13 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Bank IFSC Code Finder</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Custom CSS -->
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -54,6 +50,14 @@
         
         select, input {
             transition: all 0.3s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+            padding-right: 2.5rem;
         }
         
         select:focus, input:focus {
@@ -69,95 +73,6 @@
         
         .spinner {
             animation: spin 1s linear infinite;
-        }
-        
-        /* Custom select styling */
-        .custom-select {
-            position: relative;
-            width: 100%;
-        }
-        
-        .select-selected {
-            background-color: white;
-            border: 1px solid #e5e7eb;
-            padding: 0.75rem 1rem;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .select-selected.active {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-        }
-        
-        .select-items {
-            position: absolute;
-            background-color: white;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 99;
-            max-height: 250px;
-            overflow-y: auto;
-            border-radius: 0.375rem;
-            margin-top: 0.25rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border: 1px solid #e5e7eb;
-            display: none;
-        }
-        
-        .select-items div {
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            user-select: none;
-            transition: background-color 0.2s;
-        }
-        
-        .select-items div:hover {
-            background-color: #f3f4f6;
-        }
-        
-        .select-hide {
-            display: none;
-        }
-        
-        /* Custom checkbox styling */
-        .custom-checkbox {
-            width: 18px;
-            height: 18px;
-            background-color: white;
-            border: 2px solid #3b82f6;
-            border-radius: 4px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 8px;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .custom-checkbox.checked:before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background-color: #3b82f6;
-            border-radius: 2px;
-            position: absolute;
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6b7280;
-        }
-        
-        .search-input {
-            padding-left: 36px;
         }
         
         /* Feature icons */
@@ -178,36 +93,6 @@
         
         .fade-in {
             animation: fadeIn 0.5s ease forwards;
-        }
-        
-        /* Mobile optimizations */
-        @media (max-width: 640px) {
-            .search-card {
-                padding: 1rem !important;
-            }
-            
-            .select-items {
-                max-height: 200px;
-            }
-        }
-        
-        /* Custom scrollbar */
-        .select-items::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .select-items::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        .select-items::-webkit-scrollbar-thumb {
-            background: #c5c5c5;
-            border-radius: 10px;
-        }
-        
-        .select-items::-webkit-scrollbar-thumb:hover {
-            background: #a0a0a0;
         }
         
         /* Badge */
@@ -231,11 +116,6 @@
         .badge-green {
             background-color: #d1fae5;
             color: #065f46;
-        }
-        
-        .badge-red {
-            background-color: #fee2e2;
-            color: #b91c1c;
         }
         
         /* Quick links */
@@ -318,17 +198,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label for="searchType" class="block mb-2 font-medium text-gray-700">Search By</label>
-                        <div class="custom-select">
-                            <div class="select-selected" id="searchTypeSelected">
-                                <span>Bank & Branch</span>
-                                <i class="fas fa-chevron-down text-gray-400"></i>
-                            </div>
-                            <div class="select-items select-hide" id="searchTypeItems">
-                                <div data-value="bankBranch">Bank & Branch</div>
-                                <div data-value="ifscDirect">IFSC Code</div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="searchType" name="searchType" value="bankBranch">
+                        <select id="searchType" name="searchType" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="bankBranch">Bank & Branch</option>
+                            <option value="ifscDirect">IFSC Code</option>
+                        </select>
                     </div>
                 </div>
 
@@ -337,68 +210,47 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="state" class="block mb-2 font-medium text-gray-700">State</label>
-                            <div class="custom-select">
-                                <div class="select-selected" id="stateSelected">
-                                    <span>Select State</span>
-                                    <i class="fas fa-chevron-down text-gray-400"></i>
-                                </div>
-                                <div class="select-items select-hide" id="stateItems">
-                                    <div class="relative">
-                                        <i class="fas fa-search search-icon"></i>
-                                        <input type="text" class="w-full p-2 border-b border-gray-200 search-input mb-2" placeholder="Search states..." id="stateSearch">
-                                    </div>
-                                    <div data-value="Andhra Pradesh">Andhra Pradesh</div>
-                                    <div data-value="Arunachal Pradesh">Arunachal Pradesh</div>
-                                    <div data-value="Assam">Assam</div>
-                                    <div data-value="Bihar">Bihar</div>
-                                    <div data-value="Chhattisgarh">Chhattisgarh</div>
-                                    <div data-value="Goa">Goa</div>
-                                    <div data-value="Gujarat">Gujarat</div>
-                                    <div data-value="Haryana">Haryana</div>
-                                    <div data-value="Himachal Pradesh">Himachal Pradesh</div>
-                                    <div data-value="Jharkhand">Jharkhand</div>
-                                    <div data-value="Karnataka">Karnataka</div>
-                                    <div data-value="Kerala">Kerala</div>
-                                    <div data-value="Madhya Pradesh">Madhya Pradesh</div>
-                                    <div data-value="Maharashtra">Maharashtra</div>
-                                    <div data-value="Manipur">Manipur</div>
-                                    <div data-value="Meghalaya">Meghalaya</div>
-                                    <div data-value="Mizoram">Mizoram</div>
-                                    <div data-value="Nagaland">Nagaland</div>
-                                    <div data-value="Odisha">Odisha</div>
-                                    <div data-value="Punjab">Punjab</div>
-                                    <div data-value="Rajasthan">Rajasthan</div>
-                                    <div data-value="Sikkim">Sikkim</div>
-                                    <div data-value="Tamil Nadu">Tamil Nadu</div>
-                                    <div data-value="Telangana">Telangana</div>
-                                    <div data-value="Tripura">Tripura</div>
-                                    <div data-value="Uttar Pradesh">Uttar Pradesh</div>
-                                    <div data-value="Uttarakhand">Uttarakhand</div>
-                                    <div data-value="West Bengal">West Bengal</div>
-                                    <div data-value="Delhi">Delhi</div>
-                                </div>
-                            </div>
-                            <input type="hidden" id="state" name="state" value="">
+                            <select id="state" name="state" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select State</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                                <option value="Delhi">Delhi</option>
+                            </select>
                         </div>
                         <div>
                             <label for="city" class="block mb-2 font-medium text-gray-700">City/Town</label>
-                            <div class="custom-select">
-                                <div class="select-selected" id="citySelected">
-                                    <span>Select City/Town</span>
-                                    <i class="fas fa-chevron-down text-gray-400"></i>
-                                </div>
-                                <div class="select-items select-hide" id="cityItems">
-                                    <div class="relative">
-                                        <i class="fas fa-search search-icon"></i>
-                                        <input type="text" class="w-full p-2 border-b border-gray-200 search-input mb-2" placeholder="Search cities..." id="citySearch">
-                                    </div>
-                                    <!-- Cities will be populated by JavaScript -->
-                                </div>
-                            </div>
-                            <input type="hidden" id="city" name="city" value="">
+                            <select id="city" name="city" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
+                                <option value="">Select City/Town</option>
+                            </select>
                             <div class="mt-2 flex items-center">
-                                <div class="custom-checkbox" id="customCityCheckbox"></div>
-                                <label for="customCityCheck" class="text-sm text-gray-700 cursor-pointer">My city is not in the list</label>
+                                <input type="checkbox" id="customCityCheck" class="mr-2">
+                                <label for="customCityCheck" class="text-sm text-gray-700">My city is not in the list</label>
                             </div>
                             <div id="customCityContainer" class="hidden mt-2">
                                 <input type="text" id="customCity" name="customCity" placeholder="Enter your city/town name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -410,37 +262,113 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                         <div>
                             <label for="bank" class="block mb-2 font-medium text-gray-700">Bank</label>
-                            <div class="custom-select">
-                                <div class="select-selected" id="bankSelected">
-                                    <span>Select Bank</span>
-                                    <i class="fas fa-chevron-down text-gray-400"></i>
-                                </div>
-                                <div class="select-items select-hide" id="bankItems">
-                                    <div class="relative">
-                                        <i class="fas fa-search search-icon"></i>
-                                        <input type="text" class="w-full p-2 border-b border-gray-200 search-input mb-2" placeholder="Search banks..." id="bankSearch">
-                                    </div>
-                                    <!-- Nationalized Banks -->
-                                    <div class="py-1 px-2 bg-gray-100 text-gray-600 text-sm font-medium">Nationalized Banks</div>
-                                    <div data-value="State Bank of India">State Bank of India</div>
-                                    <div data-value="Punjab National Bank">Punjab National Bank</div>
-                                    <div data-value="Bank of Baroda">Bank of Baroda</div>
-                                    <div data-value="Canara Bank">Canara Bank</div>
-                                    <div data-value="Union Bank of India">Union Bank of India</div>
-                                    <div data-value="Bank of India">Bank of India</div>
-                                    <div data-value="Indian Bank">Indian Bank</div>
-                                    <div data-value="Central Bank of India">Central Bank of India</div>
-                                    <div data-value="Bank of Maharashtra">Bank of Maharashtra</div>
-                                    <div data-value="UCO Bank">UCO Bank</div>
-                                    <div data-value="Indian Overseas Bank">Indian Overseas Bank</div>
-                                    <div data-value="Punjab & Sind Bank">Punjab & Sind Bank</div>
-                                    
-                                    <!-- Private Banks -->
-                                    <div class="py-1 px-2 bg-gray-100 text-gray-600 text-sm font-medium">Private Banks</div>
-                                    <div data-value="HDFC Bank">HDFC Bank</div>
-                                    <div data-value="ICICI Bank">ICICI Bank</div>
-                                    <div data-value="Axis Bank">Axis Bank</div>
-                                    <div data-value="Kotak Mahindra Bank">Kotak Mahindra Bank</div>
-                                    <div data-value="IndusInd Bank">IndusInd Bank</div>
-                                    <div data-value="Yes Bank">Yes Bank</div>
- 
+                            <select id="bank" name="bank" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select Bank</option>
+                                <optgroup label="Nationalized Banks">
+                                    <option value="State Bank of India">State Bank of India</option>
+                                    <option value="Punjab National Bank">Punjab National Bank</option>
+                                    <option value="Bank of Baroda">Bank of Baroda</option>
+                                    <option value="Canara Bank">Canara Bank</option>
+                                    <option value="Union Bank of India">Union Bank of India</option>
+                                    <option value="Bank of India">Bank of India</option>
+                                    <option value="Indian Bank">Indian Bank</option>
+                                    <option value="Central Bank of India">Central Bank of India</option>
+                                    <option value="Bank of Maharashtra">Bank of Maharashtra</option>
+                                    <option value="UCO Bank">UCO Bank</option>
+                                    <option value="Indian Overseas Bank">Indian Overseas Bank</option>
+                                    <option value="Punjab & Sind Bank">Punjab & Sind Bank</option>
+                                </optgroup>
+                                <optgroup label="Private Banks">
+                                    <option value="HDFC Bank">HDFC Bank</option>
+                                    <option value="ICICI Bank">ICICI Bank</option>
+                                    <option value="Axis Bank">Axis Bank</option>
+                                    <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+                                    <option value="IndusInd Bank">IndusInd Bank</option>
+                                    <option value="Yes Bank">Yes Bank</option>
+                                    <option value="IDBI Bank">IDBI Bank</option>
+                                    <option value="Federal Bank">Federal Bank</option>
+                                    <option value="RBL Bank">RBL Bank</option>
+                                    <option value="Bandhan Bank">Bandhan Bank</option>
+                                </optgroup>
+                                <optgroup label="Foreign Banks">
+                                    <option value="HSBC Bank">HSBC Bank</option>
+                                    <option value="Citibank">Citibank</option>
+                                    <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+                                    <option value="Deutsche Bank">Deutsche Bank</option>
+                                    <option value="DBS Bank">DBS Bank</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="branch" class="block mb-2 font-medium text-gray-700">Branch</label>
+                            <input type="text" id="branch" name="branch" placeholder="Enter branch name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Direct IFSC Search Section -->
+                <div id="directIfscSection" class="hidden">
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <label for="ifscCode" class="block mb-2 font-medium text-gray-700">IFSC Code</label>
+                            <div class="relative">
+                                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" id="ifscCode" name="ifscCode" placeholder="Enter IFSC Code (e.g., SBIN0001234)" class="w-full p-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <p class="text-sm text-gray-500 mt-1">Enter the 11-digit IFSC code to get bank and branch details</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="px-8 py-3 btn-gradient rounded-md font-medium transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center mx-auto">
+                        <i class="fas fa-search mr-2"></i> Find IFSC Code
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="mb-8 bg-white rounded-lg shadow-md p-6 card hidden">
+            <h2 class="text-2xl font-bold mb-5 text-gray-800 flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>IFSC Code Details
+            </h2>
+
+            <div id="loading" class="text-center py-10 hidden">
+                <i class="fas fa-circle-notch fa-spin text-blue-600 text-4xl"></i>
+                <p class="mt-3 text-gray-600">Fetching IFSC code details...</p>
+            </div>
+
+            <div id="resultContent" class="hidden">
+                <div class="border-b pb-4 mb-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-gray-600 font-medium">IFSC Code:</p>
+                            <div class="flex items-center mt-1">
+                                <p id="ifscResult" class="text-xl font-bold text-blue-700"></p>
+                                <button id="copyIfscBtn" class="ml-3 text-blue-600 hover:text-blue-800 focus:outline-none" title="Copy to clipboard">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <div id="copyMessage" class="mt-2 text-green-600 text-sm hidden">
+                                <i class="fas fa-check-circle"></i> <span>Copied to clipboard!</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="text-gray-600 font-medium">MICR Code:</p>
+                            <p id="micrResult" class="text-xl font-bold text-gray-700">N/A</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-3 text-gray-800 flex items-center">
+                            <i class="fas fa-university text-blue-600 mr-2"></i> Bank Details
+                        </h3>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-gray-600 font-medium">Bank Name:</p>
+                                <p id="bankNameResult" class="text-gray-800 font-semibold"></p>
+                            </div>
+            
