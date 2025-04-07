@@ -5,15 +5,12 @@
     <meta name="google-adsense-account" content="ca-pub-5669036271823218">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank IFSC Code Finder | ব্যাংক আইএফএসসি কোড ফাইন্ডার</title>
+    <title>Bank IFSC Code Finder</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        .bn-text {
-            font-family: 'Noto Sans Bengali', sans-serif;
-        }
-        .en-text {
+        body {
             font-family: 'Roboto', sans-serif;
         }
         @keyframes spin {
@@ -25,100 +22,106 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen font-sans">
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header Section -->
     <header class="bg-blue-700 text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div>
-                    <h1 class="text-3xl font-bold en-text">Bank IFSC Code Finder</h1>
-                    <p class="text-xl bn-text mt-1">ব্যাংক আইএফএসসি কোড ফাইন্ডার</p>
+                    <h1 class="text-3xl font-bold">Bank IFSC Code Finder</h1>
                 </div>
                 <div class="mt-4 md:mt-0">
-                    <p class="en-text">Find IFSC codes for all Indian banks</p>
-                    <p class="bn-text">সমস্ত ভারতীয় ব্যাংকের আইএফএসসি কোড খুঁজুন</p>
+                    <p>Find IFSC codes for all Indian banks</p>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <!-- Introduction -->
         <section class="mb-8 bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-bold mb-3 text-blue-700 en-text">What is an IFSC Code?</h2>
-            <p class="bn-text mb-2">আইএফএসসি কোড কী?</p>
-            <p class="mb-4 en-text">
+            <h2 class="text-2xl font-bold mb-3 text-blue-700">What is an IFSC Code?</h2>
+            <p class="mb-4">
                 IFSC (Indian Financial System Code) is an 11-digit alphanumeric code that uniquely identifies a bank branch participating in various online money transfer options in India.
-            </p>
-            <p class="bn-text">
-                আইএফএসসি (ইন্ডিয়ান ফিনান্সিয়াল সিস্টেম কোড) হল একটি ১১-ডিজিটের আলফানিউমেরিক কোড যা ভারতে বিভিন্ন অনলাইন অর্থ স্থানান্তর বিকল্পে অংশগ্রহণকারী একটি ব্যাংক শাখাকে অনন্যভাবে চিহ্নিত করে।
             </p>
         </section>
 
+        <!-- Search Form -->
         <section class="mb-8 bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-bold mb-5 text-blue-700 en-text">Find IFSC Code</h2>
-            <p class="bn-text mb-4">আইএফএসসি কোড খুঁজুন</p>
+            <h2 class="text-2xl font-bold mb-5 text-blue-700">Find IFSC Code</h2>
 
             <form id="ifscSearchForm" class="space-y-6">
+                <!-- State Selection -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="state" class="block mb-2 font-medium en-text">State <span class="bn-text text-sm">(রাজ্য)</span></label>
+                        <label for="state" class="block mb-2 font-medium">State</label>
                         <select id="state" name="state" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="">Select State / রাজ্য নির্বাচন করুন</option>
+                            <option value="">Select State</option>
                             <option value="West Bengal">West Bengal</option>
                             <option value="Maharashtra">Maharashtra</option>
                             <option value="Delhi">Delhi</option>
                             <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Telangana">Telangana</option>
+                            <!-- Add more states here -->
                         </select>
                     </div>
                     <div>
-                        <label for="city" class="block mb-2 font-medium en-text">City <span class="bn-text text-sm">(শহর)</span></label>
+                        <label for="city" class="block mb-2 font-medium">City</label>
                         <select id="city" name="city" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
-                            <option value="">Select City / শহর নির্বাচন করুন</option>
+                            <option value="">Select City</option>
                         </select>
                     </div>
                 </div>
 
+                <!-- Bank and Branch Selection -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="bank" class="block mb-2 font-medium en-text">Bank <span class="bn-text text-sm">(ব্যাংক)</span></label>
+                        <label for="bank" class="block mb-2 font-medium">Bank</label>
                         <select id="bank" name="bank" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
-                            <option value="">Select Bank / ব্যাংক নির্বাচন করুন</option>
+                            <option value="">Select Bank</option>
                         </select>
                     </div>
                     <div>
-                        <label for="branch" class="block mb-2 font-medium en-text">Branch <span class="bn-text text-sm">(শাখা)</span></label>
+                        <label for="branch" class="block mb-2 font-medium">Branch</label>
                         <select id="branch" name="branch" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
-                            <option value="">Select Branch / শাখা নির্বাচন করুন</option>
+                            <option value="">Select Branch</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="text-center">
                     <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                        <span class="en-text">Find IFSC Code</span> / <span class="bn-text">আইএফএসসি কোড খুঁজুন</span>
+                        Find IFSC Code
                     </button>
                 </div>
             </form>
         </section>
 
+        <!-- Results Section -->
         <section id="resultsSection" class="mb-8 bg-white rounded-lg shadow-md p-6 hidden">
-            <h2 class="text-2xl font-bold mb-5 text-blue-700 en-text">IFSC Code Details</h2>
-            <p class="bn-text mb-4">আইএফএসসি কোড বিবরণ</p>
+            <h2 class="text-2xl font-bold mb-5 text-blue-700">IFSC Code Details</h2>
 
             <div id="loading" class="text-center py-10 hidden">
                 <i class="fas fa-circle-notch fa-spin text-blue-600 text-4xl"></i>
-                <p class="mt-3 en-text">Fetching IFSC code...</p>
-                <p class="bn-text">আইএফএসসি কোড আনা হচ্ছে...</p>
+                <p class="mt-3">Fetching IFSC code...</p>
             </div>
 
             <div id="resultContent" class="hidden">
                 <div class="border-b pb-4 mb-4">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <p class="text-gray-600 en-text">IFSC Code:</p>
+                            <p class="text-gray-600">IFSC Code:</p>
                             <p id="ifscResult" class="text-xl font-bold text-blue-700"></p>
                         </div>
                         <div>
-                            <p class="text-gray-600 en-text">MICR Code:</p>
+                            <p class="text-gray-600">MICR Code:</p>
                             <p id="micrResult" class="text-xl font-bold text-blue-700">N/A</p>
                         </div>
                     </div>
@@ -126,44 +129,41 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <h3 class="font-bold text-lg mb-2 en-text">Bank Details</h3>
-                        <p class="bn-text text-sm mb-3">ব্যাংক বিবরণ</p>
+                        <h3 class="font-bold text-lg mb-2">Bank Details</h3>
                         <div class="space-y-2">
-                            <p><span class="text-gray-600 en-text">Bank Name:</span> <span id="bankNameResult"></span></p>
-                            <p><span class="text-gray-600 en-text">Branch:</span> <span id="branchNameResult"></span></p>
+                            <p><span class="text-gray-600">Bank Name:</span> <span id="bankNameResult"></span></p>
+                            <p><span class="text-gray-600">Branch:</span> <span id="branchNameResult"></span></p>
                         </div>
                     </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2 en-text">Branch Address</h3>
-                        <p class="bn-text text-sm mb-3">শাখার ঠিকানা</p>
+                        <h3 class="font-bold text-lg mb-2">Branch Address</h3>
                         <div class="space-y-2">
-                            <p><span class="text-gray-600 en-text">Address:</span> <span id="addressResult">N/A</span></p>
-                            <p><span class="text-gray-600 en-text">City:</span> <span id="cityResult"></span></p>
-                            <p><span class="text-gray-600 en-text">State:</span> <span id="stateResult"></span></p>
+                            <p><span class="text-gray-600">Address:</span> <span id="addressResult">N/A</span></p>
+                            <p><span class="text-gray-600">City:</span> <span id="cityResult"></span></p>
+                            <p><span class="text-gray-600">State:</span> <span id="stateResult"></span></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-6 pt-4 border-t">
                     <button id="copyIfscBtn" class="flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition duration-300">
-                        <i class="fas fa-copy mr-2"></i> <span class="en-text">Copy IFSC Code</span>
+                        <i class="fas fa-copy mr-2"></i> <span>Copy IFSC Code</span>
                     </button>
                     <div id="copyMessage" class="mt-2 text-green-600 hidden">
-                        <i class="fas fa-check-circle"></i> <span class="en-text">Copied to clipboard!</span>
+                        <i class="fas fa-check-circle"></i> <span>Copied to clipboard!</span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Information Section -->
         <section class="mb-8 bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-bold mb-3 text-blue-700 en-text">About Bank IFSC Codes</h2>
-            <p class="bn-text mb-4">ব্যাংক আইএফএসসি কোড সম্পর্কে</p>
+            <h2 class="text-2xl font-bold mb-3 text-blue-700">About Bank IFSC Codes</h2>
             
             <div class="space-y-4">
                 <div>
-                    <h3 class="font-bold text-lg en-text">Structure of IFSC</h3>
-                    <p class="bn-text text-sm mb-2">আইএফএসসির গঠন</p>
-                    <p class="en-text">The 11-character IFSC is structured as follows:</p>
+                    <h3 class="font-bold text-lg">Structure of IFSC</h3>
+                    <p>The 11-character IFSC is structured as follows:</p>
                     <ul class="list-disc list-inside ml-4 mt-2">
                         <li>First 4 characters: Bank code (alphabetic)</li>
                         <li>5th character: 0 (zero, reserved for future use)</li>
@@ -172,9 +172,8 @@
                 </div>
 
                 <div class="mt-4">
-                    <h3 class="font-bold text-lg en-text">Uses of IFSC</h3>
-                    <p class="bn-text text-sm mb-2">আইএফএসসি এর ব্যবহার</p>
-                    <p class="en-text">IFSC is used for:</p>
+                    <h3 class="font-bold text-lg">Uses of IFSC</h3>
+                    <p>IFSC is used for:</p>
                     <ul class="list-disc list-inside ml-4 mt-2">
                         <li>NEFT (National Electronic Funds Transfer)</li>
                         <li>RTGS (Real Time Gross Settlement)</li>
@@ -186,25 +185,24 @@
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-blue-800 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div>
-                    <h2 class="text-xl font-bold mb-2 en-text">Bank IFSC Code Finder</h2>
-                    <p class="bn-text">ব্যাংক আইএফএসসি কোড ফাইন্ডার</p>
+                    <h2 class="text-xl font-bold mb-2">Bank IFSC Code Finder</h2>
                 </div>
                 <div class="mt-4 md:mt-0">
-                    <p class="en-text">© 2023 All Rights Reserved</p>
-                    <p class="bn-text">© ২০২৩ সর্বস্বত্ব সংরক্ষিত</p>
+                    <p>© 2023 All Rights Reserved</p>
                 </div>
             </div>
             <div class="mt-6 text-center text-sm">
-                <p class="en-text">This is a demo application for finding IFSC codes of Indian banks.</p>
-                <p class="bn-text mt-1">এটি ভারতীয় ব্যাংকগুলির আইএফএসসি কোড খোঁজার জন্য একটি ডেমো অ্যাপ্লিকেশন।</p>
+                <p>This is an application for finding IFSC codes of Indian banks.</p>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         // Sample data for demonstration
         const bankData = {
@@ -308,9 +306,9 @@
         // Handle state selection
         stateSelect.addEventListener("change", function() {
             const selectedState = this.value;
-            citySelect.innerHTML = '<option value="">Select City / শহর নির্বাচন করুন</option>';
-            bankSelect.innerHTML = '<option value="">Select Bank / ব্যাংক নির্বাচন করুন</option>';
-            branchSelect.innerHTML = '<option value="">Select Branch / শাখা নির্বাচন করুন</option>';
+            citySelect.innerHTML = '<option value="">Select City</option>';
+            bankSelect.innerHTML = '<option value="">Select Bank</option>';
+            branchSelect.innerHTML = '<option value="">Select Branch</option>';
             
             bankSelect.disabled = true;
             branchSelect.disabled = true;
@@ -333,8 +331,8 @@
         citySelect.addEventListener("change", function() {
             const selectedState = stateSelect.value;
             const selectedCity = this.value;
-            bankSelect.innerHTML = '<option value="">Select Bank / ব্যাংক নির্বাচন করুন</option>';
-            branchSelect.innerHTML = '<option value="">Select Branch / শাখা নির্বাচন করুন</option>';
+            bankSelect.innerHTML = '<option value="">Select Bank</option>';
+            branchSelect.innerHTML = '<option value="">Select Branch</option>';
             
             branchSelect.disabled = true;
 
@@ -357,7 +355,7 @@
             const selectedState = stateSelect.value;
             const selectedCity = citySelect.value;
             const selectedBank = this.value;
-            branchSelect.innerHTML = '<option value="">Select Branch / শাখা নির্বাচন করুন</option>';
+            branchSelect.innerHTML = '<option value="">Select Branch</option>';
 
             if (selectedBank) {
                 const branches = Object.keys(bankData[selectedState][selectedCity][selectedBank]);
@@ -418,4 +416,5 @@
         });
     </script>
 </body>
-</html>
+    </html>
+    
