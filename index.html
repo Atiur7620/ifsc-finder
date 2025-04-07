@@ -51,8 +51,6 @@
         select, input {
             transition: all 0.3s ease;
             appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 0.75rem center;
@@ -65,7 +63,6 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
         }
         
-        /* Animation for spinner */
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -75,7 +72,6 @@
             animation: spin 1s linear infinite;
         }
         
-        /* Feature icons */
         .feature-icon {
             background-color: rgba(59, 130, 246, 0.1);
             color: #3b82f6;
@@ -85,7 +81,6 @@
             margin-bottom: 16px;
         }
         
-        /* Results animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -95,16 +90,11 @@
             animation: fadeIn 0.5s ease forwards;
         }
         
-        /* Badge */
         .badge {
             display: inline-block;
             padding: 0.25rem 0.5rem;
             font-size: 0.75rem;
             font-weight: 600;
-            line-height: 1;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: baseline;
             border-radius: 0.25rem;
         }
         
@@ -118,7 +108,6 @@
             color: #065f46;
         }
         
-        /* Quick links */
         .quick-link {
             display: flex;
             align-items: center;
@@ -153,11 +142,11 @@
                     </div>
                 </div>
                 <div class="mt-4 md:mt-0 flex">
-                    <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition duration-300 mr-2 flex items-center">
+                    <a href="#about" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition duration-300 mr-2 flex items-center">
                         <i class="fas fa-info-circle mr-2"></i> About
                     </a>
-                    <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition duration-300 flex items-center">
-                        <i class="fas fa-question-circle mr-2"></i> Help
+                    <a href="#contact" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition duration-300 flex items-center">
+                        <i class="fas fa-question-circle mr-2"></i> Contact
                     </a>
                 </div>
             </div>
@@ -328,6 +317,19 @@
             </form>
         </section>
 
+        <!-- AdSense Ad Unit -->
+        <section class="mb-8 text-center">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5669036271823218"
+                 data-ad-slot="1234567890" <!-- আপনার Ad Slot ID দিন -->
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
         <!-- Results Section -->
         <section id="resultsSection" class="mb-8 bg-white rounded-lg shadow-md p-6 card hidden">
             <h2 class="text-2xl font-bold mb-5 text-gray-800 flex items-center">
@@ -368,441 +370,4 @@
                         </h3>
                         <div class="space-y-3">
                             <div>
-                                <p class="text-gray-600 font-medium">Bank Name:</p>
-                                <p id="bankNameResult" class="text-gray-800 font-semibold"></p>
-                            </div>
-                            <div>
-                                <p class="text-gray-600 font-medium">Branch:</p>
-                                <p id="branchNameResult" class="text-gray-800 font-semibold"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h3 class="font-bold text-lg mb-3 text-gray-800 flex items-center">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i> Branch Address
-                        </h3>
-                        <div class="space-y-3">
-                            <div>
-                                <p class="text-gray-600 font-medium">Address:</p>
-                                <p id="addressResult" class="text-gray-800 font-semibold">N/A</p>
-                            </div>
-                            <div>
-                                <p class="text-gray-600 font-medium">City/Town:</p>
-                                <p id="cityResult" class="text-gray-800 font-semibold"></p>
-                            </div>
-                            <div>
-                                <p class="text-gray-600 font-medium">State:</p>
-                                <p id="stateResult" class="text-gray-800 font-semibold"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Links Section -->
-        <section class="mb-8 bg-white rounded-lg shadow-md p-6 card">
-            <h3 class="text-xl font-bold mb-4 text-gray-800">Quick Links</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <a href="#" class="quick-link">
-                        <i class="fas fa-university"></i>
-                        <span>Find MICR Codes</span>
-                    </a>
-                    <a href="#" class="quick-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Bank Branch Locator</span>
-                    </a>
-                    <a href="#" class="quick-link">
-                        <i class="fas fa-info-circle"></i>
-                        <span>What is NEFT?</span>
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="quick-link">
-                        <i class="fas fa-info-circle"></i>
-                        <span>What is RTGS?</span>
-                    </a>
-                    <a href="#" class="quick-link">
-                        <i class="fas fa-info-circle"></i>
-                        <span>What is IMPS?</span>
-                    </a>
-                    <a href="#" class="quick-link">
-                        <i class="fas fa-question-circle"></i>
-                        <span>FAQs</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Information Section -->
-        <section class="mb-8 bg-white rounded-lg shadow-md p-6 card">
-            <h2 class="text-2xl font-bold mb-5 text-gray-800">About Bank IFSC Codes</h2>
-            
-            <div class="space-y-6">
-                <div class="flex items-start">
-                    <div class="feature-icon">
-                        <i class="fas fa-info-circle text-xl"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="font-bold text-lg text-gray-800">Structure of IFSC</h3>
-                        <p class="text-gray-600 mb-2">The 11-character IFSC is structured as follows:</p>
-                        <ul class="list-none space-y-2">
-                            <li class="flex items-center text-gray-700">
-                                <i class="fas fa-caret-right text-blue-600 mr-2"></i> First 4 characters: Bank code (alphabetic)
-                            </li>
-                            <li class="flex items-center text-gray-700">
-                                <i class="fas fa-caret-right text-blue-600 mr-2"></i> 5th character: 0 (zero, reserved for future use)
-                            </li>
-                            <li class="flex items-center text-gray-700">
-                                <i class="fas fa-caret-right text-blue-600 mr-2"></i> Last 6 characters: Branch code (alphanumeric)
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="flex items-start">
-                    <div class="feature-icon">
-                        <i class="fas fa-exchange-alt text-xl"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="font-bold text-lg text-gray-800">Uses of IFSC</h3>
-                        <p class="text-gray-600 mb-2">IFSC is used for:</p>
-                        <ul class="list-none space-y-2">
-                            <li class="flex items-center text-gray-700">
-                                <i class="fas fa-caret-right text-blue-600 mr-2"></i> NEFT (National Electronic Funds Transfer)
-                            </li>
-                            <li class="flex items-center text-gray-700">
-                                <i class="fas fa-caret-right text-blue-600 mr-2"></i> RTGS (Real Time Gross Settlement)
-                            </li>
-                            <li class="flex items-center text-gray-700">
-                                <i class="fas fa-caret-right text-blue-600 mr-2"></i> IMPS (Immediate Payment Service)
-                            </li>
-                            <li class="flex items-center text-gray-700">
-                                <i class="fas fa-caret-right text-blue-600 mr-2"></i> UPI (Unified Payments Interface) transactions
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="gradient-bg text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h2 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fas fa-university mr-2"></i> Bank IFSC Finder
-                    </h2>
-                    <p class="text-blue-100 mb-4">
-                        A comprehensive application for finding IFSC codes of all Indian banks in any city.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-30 transition duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-30 transition duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="bg-white bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-30 transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-blue-100 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="#" class="text-blue-100 hover:text-white transition duration-300">About Us</a></li>
-                        <li><a href="#" class="text-blue-100 hover:text-white transition duration-300">Privacy Policy</a></li>
-                        <li><a href="#" class="text-blue-100 hover:text-white transition duration-300">Terms of Service</a></li>
-                        <li><a href="#" class="text-blue-100 hover:text-white transition duration-300">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contact</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2"></i>
-                            <a href="mailto:contact@bankifscfinder.com" class="text-blue-100 hover:text-white transition duration-300">contact@bankifscfinder.com</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-2"></i>
-                            <a href="tel:+911234567890" class="text-blue-100 hover:text-white transition duration-300">+91 123 456 7890</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            <span class="text-blue-100">New Delhi, India</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-blue-400 mt-8 pt-6 text-center">
-                <p>© 2023 Bank IFSC Finder. All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // City data for each state
-        const cityData = {
-            "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Rajahmundry", "Tirupati", "Kakinada", "Eluru", "Anantapur", "Kadapa"],
-            "Arunachal Pradesh": ["Itanagar", "Naharlagun", "Pasighat", "Tawang", "Bomdila"],
-            "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Tezpur"],
-            "Bihar": ["Patna", "Gaya", "Muzaffarpur", "Bhagalpur", "Darbhanga", "Purnia", "Arrah", "Begusarai"],
-            "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba", "Durg", "Rajnandgaon", "Jagdalpur"],
-            "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa", "Ponda"],
-            "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar"],
-            "Haryana": ["Gurgaon", "Faridabad", "Rohtak", "Hisar", "Panipat", "Karnal", "Ambala", "Yamunanagar"],
-            "Himachal Pradesh": ["Shimla", "Dharamshala", "Mandi", "Solan", "Kullu", "Baddi", "Nahan"],
-            "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Hazaribagh", "Deoghar", "Phusro"],
-            "Karnataka": ["Bangalore", "Mysore", "Hubli", "Mangalore", "Belgaum", "Gulbarga", "Davanagere", "Bellary"],
-            "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Kollam", "Kannur", "Alappuzha", "Palakkad"],
-            "Madhya Pradesh": ["Bhopal", "Indore", "Jabalpur", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna"],
-            "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Thane", "Nashik", "Aurangabad", "Solapur", "Kalyan-Dombivli"],
-            "Manipur": ["Imphal", "Thoubal", "Kakching", "Ukhrul", "Chandel"],
-            "Meghalaya": ["Shillong", "Tura", "Jowai", "Nongpoh", "Williamnagar"],
-            "Mizoram": ["Aizawl", "Lunglei", "Champhai", "Serchhip", "Kolasib"],
-            "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha"],
-            "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Puri", "Balasore"],
-            "Punjab": ["Chandigarh", "Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Mohali", "Pathankot"],
-            "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Ajmer", "Bikaner", "Alwar", "Bharatpur"],
-            "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan", "Ravangla"],
-            "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Tiruppur", "Vellore"],
-            "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam", "Ramagundam", "Mahbubnagar"],
-            "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Kailasahar", "Belonia"],
-            "Uttar Pradesh": ["Lucknow", "Kanpur", "Ghaziabad", "Agra", "Varanasi", "Meerut", "Prayagraj", "Bareilly"],
-            "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Nainital", "Rudrapur", "Kashipur"],
-            "West Bengal": ["Kolkata", "Howrah", "Siliguri", "Durgapur", "Asansol", "Bardhaman", "Malda", "Baharampur"],
-            "Delhi": ["New Delhi", "North Delhi", "South Delhi", "East Delhi", "West Delhi", "Central Delhi"]
-        };
-
-        // Bank code mapping (for generating sample IFSC codes)
-        const bankCodes = {
-            "State Bank of India": "SBIN",
-            "Punjab National Bank": "PUNB",
-            "Bank of Baroda": "BARB",
-            "Canara Bank": "CNRB",
-            "Union Bank of India": "UBIN",
-            "Bank of India": "BKID",
-            "Indian Bank": "IDIB",
-            "Central Bank of India": "CBIN",
-            "Bank of Maharashtra": "MAHB",
-            "UCO Bank": "UCBA",
-            "Indian Overseas Bank": "IOBA",
-            "Punjab & Sind Bank": "PSIB",
-            "HDFC Bank": "HDFC",
-            "ICICI Bank": "ICIC",
-            "Axis Bank": "UTIB",
-            "Kotak Mahindra Bank": "KKBK",
-            "IndusInd Bank": "INDB",
-            "Yes Bank": "YESB",
-            "IDBI Bank": "IBKL",
-            "Federal Bank": "FDRL",
-            "RBL Bank": "RATN",
-            "Bandhan Bank": "BDBL",
-            "HSBC Bank": "HSBC",
-            "Citibank": "CITI",
-            "Deutsche Bank": "DEUT",
-            "Standard Chartered Bank": "SCBL",
-            "DBS Bank": "DBSS"
-        };
-
-        // DOM Elements
-        const searchTypeSelect = document.getElementById("searchType");
-        const bankBranchSection = document.getElementById("bankBranchSection");
-        const directIfscSection = document.getElementById("directIfscSection");
-        const stateSelect = document.getElementById("state");
-        const citySelect = document.getElementById("city");
-        const customCityCheck = document.getElementById("customCityCheck");
-        const customCityContainer = document.getElementById("customCityContainer");
-        const bankSelect = document.getElementById("bank");
-        const branchInput = document.getElementById("branch");
-        const ifscInput = document.getElementById("ifscCode");
-        const ifscSearchForm = document.getElementById("ifscSearchForm");
-        const resultsSection = document.getElementById("resultsSection");
-        const loadingDiv = document.getElementById("loading");
-        const resultContent = document.getElementById("resultContent");
-        const copyIfscBtn = document.getElementById("copyIfscBtn");
-        const copyMessage = document.getElementById("copyMessage");
-        const ifscResult = document.getElementById("ifscResult");
-        const micrResult = document.getElementById("micrResult");
-        const bankNameResult = document.getElementById("bankNameResult");
-        const branchNameResult = document.getElementById("branchNameResult");
-        const addressResult = document.getElementById("addressResult");
-        const cityResult = document.getElementById("cityResult");
-        const stateResult = document.getElementById("stateResult");
-
-        // Toggle search sections based on search type
-        searchTypeSelect.addEventListener("change", function() {
-            if (this.value === "bankBranch") {
-                bankBranchSection.classList.remove("hidden");
-                directIfscSection.classList.add("hidden");
-            } else {
-                bankBranchSection.classList.add("hidden");
-                directIfscSection.classList.remove("hidden");
-            }
-        });
-
-        // Toggle custom city input
-        customCityCheck.addEventListener("change", function() {
-            if (this.checked) {
-                customCityContainer.classList.remove("hidden");
-                citySelect.disabled = true;
-            } else {
-                customCityContainer.classList.add("hidden");
-                citySelect.disabled = false;
-            }
-        });
-
-        // Populate city dropdown based on selected state
-        stateSelect.addEventListener("change", function() {
-            const selectedState = this.value;
-            citySelect.innerHTML = '<option value="">Select City/Town</option>';
-            citySelect.disabled = true;
-            
-            if (selectedState && cityData[selectedState]) {
-                cityData[selectedState].forEach(city => {
-                    const option = document.createElement("option");
-                    option.value = city;
-                    option.textContent = city;
-                    citySelect.appendChild(option);
-                });
-                citySelect.disabled = false;
-            }
-        });
-
-        // Generate a random IFSC code for demo purposes
-        function generateIfscCode(bankName, state, city) {
-            // Get bank code or use default
-            const bankCode = bankCodes[bankName] || "BANK";
-            
-            // Process state and city for code generation
-            const statePart = state.substring(0, 2).toUpperCase();
-            const cityPart = city.substring(0, 2).toUpperCase();
-            
-            // Random branch number to make IFSC unique
-            const branchNum = Math.floor(Math.random() * 900) + 100;
-            
-            // Format: BANK0STCIBR (where ST=state, CI=city, BR=branch number)
-            return `${bankCode}0${statePart}${cityPart}${branchNum}`;
-        }
-
-        // Handle form submission
-        ifscSearchForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            
-            const searchType = searchTypeSelect.value;
-            
-            // Validate form
-            if (searchType === "bankBranch") {
-                const state = stateSelect.value;
-                const city = customCityCheck.checked ? 
-                             document.getElementById("customCity").value :
-                             citySelect.value;
-                const bank = bankSelect.value;
-                const branch = branchInput.value;
-                
-                if (!state || !city || !bank || !branch) {
-                    alert("Please fill all the required fields");
-                    return;
-                }
-            } else {
-                const ifscCode = ifscInput.value;
-                if (!ifscCode || ifscCode.length !== 11) {
-                    alert("Please enter a valid 11-digit IFSC code");
-                    return;
-                }
-            }
-            
-            // Show loading
-            resultsSection.classList.remove("hidden");
-            loadingDiv.classList.remove("hidden");
-            resultContent.classList.add("hidden");
-            
-            // Scroll to results
-            resultsSection.scrollIntoView({ behavior: "smooth" });
-            
-            // Simulate API call with timeout (in real app, this would be an actual API call)
-            setTimeout(() => {
-                let ifscCode = "";
-                let bankName = "";
-                let branchName = "";
-                let cityName = "";
-                let stateName = "";
-                
-                if (searchType === "bankBranch") {
-                    // Bank & Branch search
-                    stateName = stateSelect.value;
-                    cityName = customCityCheck.checked ? 
-                               document.getElementById("customCity").value :
-                               citySelect.value;
-                    bankName = bankSelect.value;
-                    branchName = branchInput.value;
-                    
-                    // Generate a sample IFSC code
-                    ifscCode = generateIfscCode(bankName, stateName, cityName);
-                } else {
-                    // Direct IFSC search
-                    ifscCode = ifscInput.value.toUpperCase();
-                    
-                    // Extract bank code from IFSC
-                    const bankCode = ifscCode.substring(0, 4);
-                    
-                    // Find bank name from bank code
-                    for (const [bank, code] of Object.entries(bankCodes)) {
-                        if (code === bankCode) {
-                            bankName = bank;
-                            break;
-                        }
-                    }
-                    
-                    // If bank not found, provide generic information
-                    if (!bankName) {
-                        bankName = "Unknown Bank";
-                    }
-                    
-                    branchName = "Branch Name";
-                    cityName = "City";
-                    stateName = "State";
-                }
-                
-                // Update result elements
-                ifscResult.textContent = ifscCode;
-                
-                // Generate random MICR code (9 digits)
-                if (Math.random() > 0.5) {
-                    micrResult.textContent = Math.floor(Math.random() * 900000000) + 100000000;
-                } else {
-                    micrResult.textContent = "N/A";
-                }
-                
-                bankNameResult.textContent = bankName;
-                branchNameResult.textContent = branchName;
-                addressResult.textContent = `${branchName}, ${cityName}, ${stateName}`;
-                cityResult.textContent = cityName;
-                stateResult.textContent = stateName;
-                
-                // Hide loading, show results with animation
-                loadingDiv.classList.add("hidden");
-                resultContent.classList.remove("hidden");
-                resultContent.classList.add("fade-in");
-            }, 1500);
-        });
-
-        // Copy IFSC code to clipboard
-        copyIfscBtn.addEventListener("click", function() {
-            const ifscCode = ifscResult.textContent;
-            navigator.clipboard.writeText(ifscCode).then(() => {
-                copyMessage.classList.remove("hidden");
-                setTimeout(() => {
-                    copyMessage.classList.add("hidden");
-                }, 3000);
-            });
-        });
-    </script>
-</body>
-</html>
+                                <p class="text-
