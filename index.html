@@ -58,18 +58,35 @@
                         <label for="state" class="block mb-2 font-medium">State</label>
                         <select id="state" name="state" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select State</option>
-                            <option value="West Bengal">West Bengal</option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Gujarat">Gujarat</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
                             <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
                             <option value="Telangana">Telangana</option>
-                            <!-- Add more states here -->
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Delhi">Delhi</option>
                         </select>
                     </div>
                     <div>
@@ -206,27 +223,55 @@
     <script>
         // Sample data for demonstration
         const bankData = {
-            "West Bengal": {
-                "Kolkata": {
+            "Andhra Pradesh": {
+                "Hyderabad": {
                     "State Bank of India": {
-                        "Ballygunge": "SBIN0000001",
-                        "Park Street": "SBIN0000002",
-                        "Salt Lake": "SBIN0000003"
+                        "Ameerpet": "SBIN0001234",
+                        "Jubilee Hills": "SBIN0001235",
+                        "Hitech City": "SBIN0001236"
                     },
                     "HDFC Bank": {
-                        "Esplanade": "HDFC0000001",
-                        "New Alipore": "HDFC0000002",
-                        "Gariahat": "HDFC0000003"
+                        "Banjara Hills": "HDFC0001234",
+                        "Kukatpally": "HDFC0001235",
+                        "Secunderabad": "HDFC0001236"
                     }
                 },
-                "Howrah": {
-                    "Axis Bank": {
-                        "Main Branch": "UTIB0000001",
-                        "Salkia": "UTIB0000002"
-                    },
+                "Vijayawada": {
                     "ICICI Bank": {
-                        "GT Road": "ICIC0000001",
-                        "Howrah Station": "ICIC0000002"
+                        "MG Road": "ICIC0001234",
+                        "Benz Circle": "ICIC0001235"
+                    },
+                    "Axis Bank": {
+                        "Governorpet": "UTIB0001234",
+                        "Bandar Road": "UTIB0001235"
+                    }
+                }
+            },
+            "Karnataka": {
+                "Bangalore": {
+                    "State Bank of India": {
+                        "MG Road": "SBIN0002234",
+                        "Koramangala": "SBIN0002235",
+                        "Whitefield": "SBIN0002236"
+                    },
+                    "HDFC Bank": {
+                        "Indiranagar": "HDFC0002234",
+                        "Jayanagar": "HDFC0002235",
+                        "Electronic City": "HDFC0002236"
+                    }
+                }
+            },
+            "Gujarat": {
+                "Ahmedabad": {
+                    "State Bank of India": {
+                        "Navrangpura": "SBIN0003234",
+                        "Satellite": "SBIN0003235",
+                        "Prahlad Nagar": "SBIN0003236"
+                    },
+                    "HDFC Bank": {
+                        "CG Road": "HDFC0003234",
+                        "Maninagar": "HDFC0003235",
+                        "Vastrapur": "HDFC0003236"
                     }
                 }
             },
@@ -254,6 +299,58 @@
                     }
                 }
             },
+            "Tamil Nadu": {
+                "Chennai": {
+                    "State Bank of India": {
+                        "T Nagar": "SBIN0000010",
+                        "Adyar": "SBIN0000011",
+                        "Mylapore": "SBIN0000012"
+                    },
+                    "HDFC Bank": {
+                        "Anna Nagar": "HDFC0000010",
+                        "Nungambakkam": "HDFC0000011",
+                        "Velachery": "HDFC0000012"
+                    }
+                }
+            },
+            "West Bengal": {
+                "Kolkata": {
+                    "State Bank of India": {
+                        "Ballygunge": "SBIN0000001",
+                        "Park Street": "SBIN0000002",
+                        "Salt Lake": "SBIN0000003"
+                    },
+                    "HDFC Bank": {
+                        "Esplanade": "HDFC0000001",
+                        "New Alipore": "HDFC0000002",
+                        "Gariahat": "HDFC0000003"
+                    }
+                },
+                "Howrah": {
+                    "Axis Bank": {
+                        "Main Branch": "UTIB0000001",
+                        "Salkia": "UTIB0000002"
+                    },
+                    "ICICI Bank": {
+                        "GT Road": "ICIC0000001",
+                        "Howrah Station": "ICIC0000002"
+                    }
+                }
+            },
+            "Uttar Pradesh": {
+                "Lucknow": {
+                    "State Bank of India": {
+                        "Hazratganj": "SBIN0004234",
+                        "Gomti Nagar": "SBIN0004235",
+                        "Indira Nagar": "SBIN0004236"
+                    },
+                    "HDFC Bank": {
+                        "Alambagh": "HDFC0004234",
+                        "Mahanagar": "HDFC0004235",
+                        "Aliganj": "HDFC0004236"
+                    }
+                }
+            },
             "Delhi": {
                 "New Delhi": {
                     "State Bank of India": {
@@ -268,20 +365,28 @@
                     }
                 }
             },
-            "Tamil Nadu": {
-                "Chennai": {
-                    "State Bank of India": {
-                        "T Nagar": "SBIN0000010",
-                        "Adyar": "SBIN0000011",
-                        "Mylapore": "SBIN0000012"
-                    },
-                    "HDFC Bank": {
-                        "Anna Nagar": "HDFC0000010",
-                        "Nungambakkam": "HDFC0000011",
-                        "Velachery": "HDFC0000012"
-                    }
-                }
-            }
+            // Template for other states - data will be shown as "not available" if selected
+            "Arunachal Pradesh": {},
+            "Assam": {},
+            "Bihar": {},
+            "Chhattisgarh": {},
+            "Goa": {},
+            "Haryana": {},
+            "Himachal Pradesh": {},
+            "Jharkhand": {},
+            "Kerala": {},
+            "Madhya Pradesh": {},
+            "Manipur": {},
+            "Meghalaya": {},
+            "Mizoram": {},
+            "Nagaland": {},
+            "Odisha": {},
+            "Punjab": {},
+            "Rajasthan": {},
+            "Sikkim": {},
+            "Telangana": {},
+            "Tripura": {},
+            "Uttarakhand": {}
         };
 
         // DOM elements
@@ -314,107 +419,18 @@
             branchSelect.disabled = true;
 
             if (selectedState) {
-                const cities = Object.keys(bankData[selectedState]);
-                cities.forEach(city => {
+                const cities = Object.keys(bankData[selectedState] || {});
+                
+                if (cities.length > 0) {
+                    cities.forEach(city => {
+                        const option = document.createElement("option");
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                    citySelect.disabled = false;
+                } else {
+                    // If no cities found for the state
                     const option = document.createElement("option");
-                    option.value = city;
-                    option.textContent = city;
-                    citySelect.appendChild(option);
-                });
-                citySelect.disabled = false;
-            } else {
-                citySelect.disabled = true;
-            }
-        });
-
-        // Handle city selection
-        citySelect.addEventListener("change", function() {
-            const selectedState = stateSelect.value;
-            const selectedCity = this.value;
-            bankSelect.innerHTML = '<option value="">Select Bank</option>';
-            branchSelect.innerHTML = '<option value="">Select Branch</option>';
-            
-            branchSelect.disabled = true;
-
-            if (selectedCity) {
-                const banks = Object.keys(bankData[selectedState][selectedCity]);
-                banks.forEach(bank => {
-                    const option = document.createElement("option");
-                    option.value = bank;
-                    option.textContent = bank;
-                    bankSelect.appendChild(option);
-                });
-                bankSelect.disabled = false;
-            } else {
-                bankSelect.disabled = true;
-            }
-        });
-
-        // Handle bank selection
-        bankSelect.addEventListener("change", function() {
-            const selectedState = stateSelect.value;
-            const selectedCity = citySelect.value;
-            const selectedBank = this.value;
-            branchSelect.innerHTML = '<option value="">Select Branch</option>';
-
-            if (selectedBank) {
-                const branches = Object.keys(bankData[selectedState][selectedCity][selectedBank]);
-                branches.forEach(branch => {
-                    const option = document.createElement("option");
-                    option.value = branch;
-                    option.textContent = branch;
-                    branchSelect.appendChild(option);
-                });
-                branchSelect.disabled = false;
-            } else {
-                branchSelect.disabled = true;
-            }
-        });
-
-        // Handle form submission
-        ifscSearchForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            
-            const selectedState = stateSelect.value;
-            const selectedCity = citySelect.value;
-            const selectedBank = bankSelect.value;
-            const selectedBranch = branchSelect.value;
-
-            if (selectedState && selectedCity && selectedBank && selectedBranch) {
-                // Show loading
-                resultsSection.classList.remove("hidden");
-                loadingDiv.classList.remove("hidden");
-                resultContent.classList.add("hidden");
-
-                // Simulate API call with timeout
-                setTimeout(() => {
-                    const ifscCode = bankData[selectedState][selectedCity][selectedBank][selectedBranch];
-                    
-                    // Update result elements
-                    ifscResult.textContent = ifscCode;
-                    bankNameResult.textContent = selectedBank;
-                    branchNameResult.textContent = selectedBranch;
-                    cityResult.textContent = selectedCity;
-                    stateResult.textContent = selectedState;
-
-                    // Hide loading, show results
-                    loadingDiv.classList.add("hidden");
-                    resultContent.classList.remove("hidden");
-                }, 1500); // 1.5 seconds delay to simulate API call
-            }
-        });
-
-        // Copy IFSC code to clipboard
-        copyIfscBtn.addEventListener("click", function() {
-            const ifscCode = ifscResult.textContent;
-            navigator.clipboard.writeText(ifscCode).then(() => {
-                copyMessage.classList.remove("hidden");
-                setTimeout(() => {
-                    copyMessage.classList.add("hidden");
-                }, 3000);
-            });
-        });
-    </script>
-</body>
-    </html>
-    
+                    option.value = "Not Available";
+                    option.tex
